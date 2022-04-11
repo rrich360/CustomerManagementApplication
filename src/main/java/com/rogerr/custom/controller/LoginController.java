@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rogerr.custom.model.Login;
 
@@ -24,18 +25,26 @@ public class LoginController {
 		
 		return"user_login";
 	}
-
+	
+	
 	@PostMapping("/")
-	public String processLogin(@Valid @ModelAttribute("Login") Login user, Errors errors, Model model) {
-		
-		if(errors.hasErrors()) {
+	//@RequestMapping(method = RequestMethod.POST)
+	public String submit(@Valid Model model, @ModelAttribute("Login") Login user, Errors errors) {
+		if (user != null && user.getUsername() != null & user.getPassword() != null) {
+			if (user.getUsername().equals("rrichar1") && user.getPassword().equals("hearts246")) {
+				model.addAttribute("msg", user.getUsername());
+				return "success";
+			} else {
+				model.addAttribute("error", "Invalid Details");
+				return "user_login";
+			}
+		} else if(errors.hasErrors()) {
 			return "user_login";
 		} else {
-		
-		// login processing successful
-		return "header";
+			model.addAttribute("error", "Please enter Details");
+			return "user_login";
 		}
 	}
 	
-	
-}
+  }
+
