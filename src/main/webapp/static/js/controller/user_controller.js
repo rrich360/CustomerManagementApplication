@@ -1,6 +1,5 @@
 'use strict';
 
-// TODO: Refactor with John Papas style guide.
 angular.module('myApp').controller('UserController', ['$scope', '$log', 'UserService', function ($scope, $log, UserService) {
     var self = this;
     self.user = {};

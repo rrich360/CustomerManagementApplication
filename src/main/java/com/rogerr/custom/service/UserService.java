@@ -8,15 +8,15 @@ import com.rogerr.custom.model.User;
 
 public interface UserService {
 	
-	User findById(long id);
+	User findById(Long id);
 
-	User findByName(String name);
+	//User findByName(String name);
 
-	User saveUser(User user);
+	void saveUser(User user);
 
-	User updateUser(User user);
+	void updateUser(User user);
 
-	Long deleteUserById(long id);
+	void deleteUserById(Long id);
 
 	List<User> findAllUsers();
 

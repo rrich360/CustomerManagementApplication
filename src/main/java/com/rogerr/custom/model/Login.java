@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 public class Login {
 	
 	
-	@NotBlank(message="username can NOT be empty!")
+	@NotBlank(message="username can not be empty!")
 	private String username;
 	private String password;
 	

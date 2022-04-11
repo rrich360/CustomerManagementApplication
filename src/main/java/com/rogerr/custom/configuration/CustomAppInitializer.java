@@ -2,6 +2,7 @@ package com.rogerr.custom.configuration;
 
 import javax.servlet.Filter;
 
+
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class CustomAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -26,5 +27,5 @@ public class CustomAppInitializer extends AbstractAnnotationConfigDispatcherServ
     	Filter [] singleton = { };
     	return singleton;
 	}
- 
+   
 }

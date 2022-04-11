@@ -1,17 +1,38 @@
 package com.rogerr.custom.model;
 
+//import java.util.List;
+
+//import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+//import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+//import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "user")
 public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 
+	@Column(name="USERNAME")
 	private String username;
-
+	
+	@Column(name="ADDRESS")
 	private String address;
 
+	@Column(name="EMAIL")
 	private String email;
-
-	public User() {
-	}
+	
+	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "storeOwner", cascade = CascadeType.ALL, orphanRemoval = false)
+	//private List<Product> products;
+	
+	public User() {}
 
 	public User(Long id, String username, String address, String email) {
 		this.id = id;
@@ -20,6 +41,7 @@ public class User {
 		this.email = email;
 	}
 
+	
 	public Long getId() {
 		return id;
 	}
@@ -78,6 +100,6 @@ public class User {
 				+ ", email=" + email + "}";
 	}
 
-
+	//mvn clean jetty:run -Dorg.slf4j.simpleLogger.defaultLogLevel=debug
 	
 }
