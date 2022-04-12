@@ -1,2 +1,2 @@
 # CustomerManagementApplication
-Task 1 assignment that includes Home page and navigation page with CRUD examples
+New Joiner Project that includes full stack application and will include testing implementations via test ng and selenium.
