@@ -1,2 +1,3 @@
 # CustomerManagementApplication
-Task 2 adding persistence update to web application for integrating with Database
+
+New Joiner Project that includes full stack application and will include testing implementations via test ng and selenium.
