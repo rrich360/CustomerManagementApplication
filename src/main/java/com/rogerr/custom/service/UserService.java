@@ -2,27 +2,27 @@ package com.rogerr.custom.service;
 
 import java.util.List;
 
-import com.rogerr.custom.model.User;
+import com.rogerr.custom.model.Subscriber;
 
 
 
 public interface UserService {
 	
-	User findById(Long id);
+	Subscriber findById(Long id);
 
 	//User findByName(String name);
 
-	void saveUser(User user);
+	void saveUser(Subscriber user);
 
-	void updateUser(User user);
+	void updateUser(Subscriber user);
 
 	void deleteUserById(Long id);
 
-	List<User> findAllUsers();
+	List<Subscriber> findAllUsers();
 
-	List<User> deleteAllUsers();
+	List<Subscriber> deleteAllUsers();
 
-	public boolean isUserExist(User user);
+	public boolean isUserExist(Subscriber user);
 
 
 }

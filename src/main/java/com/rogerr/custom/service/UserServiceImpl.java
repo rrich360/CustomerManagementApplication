@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rogerr.custom.dao.UserDao;
-import com.rogerr.custom.model.User;
+import com.rogerr.custom.model.Subscriber;
 
 
 @Service
@@ -18,23 +18,23 @@ public class UserServiceImpl implements UserService{
 	private UserDao userDao;
 		
 
-	public List<User> findAllUsers() {
+	public List<Subscriber> findAllUsers() {
 		return userDao.findAllUsers();
 	}
 	
-	public User findById(Long id) {
+	public Subscriber findById(Long id) {
 		return userDao.findById(id);
 	}
 	
-	public User findByUsername(String username) {
+	public Subscriber findByUsername(String username) {
 		return userDao.findByUsername(username);
 	}
 	
-	public void saveUser(User user) {
+	public void saveUser(Subscriber user) {
 	userDao.saveUser(user);
 	}
 	
-	public void updateUser(User user) {
+	public void updateUser(Subscriber user) {
 		 userDao.updateUser(user);
 	}
 	
@@ -42,11 +42,11 @@ public class UserServiceImpl implements UserService{
 		userDao.deleteUserById(id);
 	}
 
-	public boolean isUserExist(User user) {
+	public boolean isUserExist(Subscriber user) {
 		return userDao.isUserExist(user);
 	}
 	
-	public List<User> deleteAllUsers(){
+	public List<Subscriber> deleteAllUsers(){
 		return userDao.deleteAllUsers();
 	}
 

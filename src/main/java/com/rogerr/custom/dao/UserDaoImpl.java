@@ -3,77 +3,97 @@ package com.rogerr.custom.dao;
 import java.util.Collections;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Criteria;
-import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.orm.hibernate4.HibernateTemplate;
+//import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 //import org.springframework.transaction.annotation.Transactional;
 
-import com.rogerr.custom.model.User;
+import com.rogerr.custom.model.Subscriber;
 
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    @Autowired
-    SessionFactory sessionFactory;
 
-    @Override
-    public User findById(Long id) {
-    	String hql = "FROM User u WHERE u.id = :id"; 
-		Query query = sessionFactory.openSession().createQuery(hql);
-		query.setParameter("id", id);
-		return (User) query.uniqueResult();
-    }
+    @Autowired
+    private SessionFactory sessionFactory;
+	
+
+//    @Override
+//    public User findById(Long id) {
+//    	String hql = "FROM Subscriber u WHERE u.id = :id"; 
+//		Query query = sessionFactory.openSession().createQuery(hql);
+//		query.setParameter("id", id);
+//		return (User) query.uniqueResult();
+//    }
     
     @Override
-    public User findByUsername(String username) {
-        String hql = "FROM User p WHERE p.username = :username"; // HQL Query
+	public Subscriber findById(Long id) {
+		Subscriber user = null;
+		String hql = "FROM Subscriber where id = :id";
+		
+		Query query = getSession().createQuery(hql);
+		query.setParameter("id", id);
+		user = (Subscriber) query.getSingleResult();
+		
+		return user;
+	}
+    
+    @Override
+    public Subscriber findByUsername(String username) {
+        String hql = "FROM Subscriber p WHERE p.username = :username"; // HQL Query
         Query query = sessionFactory.openSession().createQuery(hql);
         query.setParameter("username", username);
-        return (User) query.uniqueResult();
+        return (Subscriber) query.getSingleResult();
     }
 
     @Override
-    public void saveUser(User user) {
+    public void saveUser(Subscriber user) {
     	sessionFactory.getCurrentSession().save(user);
     }
 
     @Override
-    public void updateUser(User user) {
+    public void updateUser(Subscriber user) {
     	sessionFactory.getCurrentSession().save(user);
     }
 
     @Override
-    public void deleteUserById(Long id) {
-        Query query = sessionFactory.openSession().createSQLQuery("DELETE FROM User WHERE id = :id");
-        query.setLong("id", id);
-        query.executeUpdate();
-    }
+	public void deleteUserById(Long id) {
+		Session currentSession = getSession();
+		Subscriber user = currentSession.byId(Subscriber.class).load(id);
+		currentSession.delete(user);
+	}
 
     @SuppressWarnings("unchecked")
     @Override
-    public List<User> findAllUsers() {
-        Criteria criteria = sessionFactory.openSession().createCriteria(User.class); // Criteria Query
-        return (List<User>) criteria.list();
+    public List<Subscriber> findAllUsers() {
+        Criteria criteria = sessionFactory.openSession().createCriteria(Subscriber.class); // Criteria Query
+        return (List<Subscriber>) criteria.list();
     }
 
     @Override
-    public List<User> deleteAllUsers() {
-        sessionFactory.openSession().createQuery("DELETE FROM User").executeUpdate();
+    public List<Subscriber> deleteAllUsers() {
+        sessionFactory.openSession().createQuery("DELETE FROM Subscriber").executeUpdate();
         return Collections.emptyList();
     }
     
     @Override
-    public Boolean isUserExist(User user) {
-        Query query = sessionFactory.openSession().createQuery("FROM User p WHERE p.username = :username");
-    	query.setString("username", user.getUsername());
-    	List<?> pList = query.list();
+	public Boolean isUserExist(Subscriber user) {
+        Query query = sessionFactory.openSession().createQuery("FROM Subscriber p WHERE p.username = :username");
+    	query.setParameter("username", user.getUsername());
+    	List<?> pList = query.getResultList();
     	if (!pList.isEmpty()) {
     		return true;
     	}
     	return false;
+    }
+ 
+    protected Session getSession() {
+        return sessionFactory.getCurrentSession();
     }
 
 }

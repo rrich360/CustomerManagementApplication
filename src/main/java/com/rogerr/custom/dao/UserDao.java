@@ -2,25 +2,25 @@ package com.rogerr.custom.dao;
 
 import java.util.List;
 
-import com.rogerr.custom.model.User;
+import com.rogerr.custom.model.Subscriber;
 
 public interface UserDao {
 
 	
-	 User findById(Long id);
+	 Subscriber findById(Long id);
 
-		User findByUsername(String username);
+		Subscriber findByUsername(String username);
 
-		void saveUser(User user);
+		void saveUser(Subscriber user);
 
-		void updateUser(User user);
+		void updateUser(Subscriber user);
 
 		void deleteUserById(Long id);
 
-		List<User> findAllUsers();
+		List<Subscriber> findAllUsers();
 
-		List<User> deleteAllUsers();
+		List<Subscriber> deleteAllUsers();
 
-		public Boolean isUserExist(User user);
+		public Boolean isUserExist(Subscriber user);
 
 }

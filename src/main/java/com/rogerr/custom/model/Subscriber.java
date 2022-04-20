@@ -1,23 +1,18 @@
 package com.rogerr.custom.model;
 
-//import java.util.List;
-
-//import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "person")
-public class User {
+@Table
+public class Subscriber {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@Column(name="USERNAME")
@@ -32,9 +27,9 @@ public class User {
 	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "storeOwner", cascade = CascadeType.ALL, orphanRemoval = false)
 	//private List<Product> products;
 	
-	public User() {}
+	public Subscriber() {}
 
-	public User(Long id, String username, String address, String email) {
+	public Subscriber(Long id, String username, String address, String email) {
 		this.id = id;
 		this.username = username;
 		this.address = address;
@@ -73,33 +68,5 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		return result;
-	}
-
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (!(obj instanceof User))
-			return false;
-		User other = (User) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "User {id=" + id + ", username=" + username + ", address=" + address
-				+ ", email=" + email + "}";
-	}
-
-	//mvn clean jetty:run -Dorg.slf4j.simpleLogger.defaultLogLevel=debug
 	
 }
