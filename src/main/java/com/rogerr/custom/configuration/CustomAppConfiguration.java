@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.rogerr.custom")
+@ComponentScan(basePackages = "com.rogerr.custom") 
 public class CustomAppConfiguration extends WebMvcConfigurerAdapter{
 	
 	@Override
