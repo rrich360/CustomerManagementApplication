@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.Query;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,14 +21,7 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
 	
-
-//    @Override
-//    public User findById(Long id) {
-//    	String hql = "FROM Subscriber u WHERE u.id = :id"; 
-//		Query query = sessionFactory.openSession().createQuery(hql);
-//		query.setParameter("id", id);
-//		return (User) query.uniqueResult();
-//    }
+    
     
     @Override
 	public Subscriber findById(Long id) {
@@ -58,7 +50,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void updateUser(Subscriber user) {
-    	sessionFactory.getCurrentSession().save(user);
+    	sessionFactory.getCurrentSession().update(user);
     }
 
     @Override
@@ -71,8 +63,11 @@ public class UserDaoImpl implements UserDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<Subscriber> findAllUsers() {
-        Criteria criteria = sessionFactory.openSession().createCriteria(Subscriber.class); // Criteria Query
-        return (List<Subscriber>) criteria.list();
+    	String hql = "FROM Subscriber s";
+
+		return getSession().createQuery(hql).getResultList();
+       // Criteria criteria = sessionFactory.openSession().createCriteria(Subscriber.class); // need JPA
+       // return (List<Subscriber>) criteria.list();
     }
 
     @Override

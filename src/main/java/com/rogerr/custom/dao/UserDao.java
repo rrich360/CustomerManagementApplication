@@ -22,5 +22,7 @@ public interface UserDao {
 		List<Subscriber> deleteAllUsers();
 
 		public Boolean isUserExist(Subscriber user);
+		
+		
 
 }
