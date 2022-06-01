@@ -6,7 +6,7 @@
 	<artifactId>CustomerManagementApplication</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
-	<name>CustomerManagementApplication Maven Webapp</name>
+	<name>CustomerManagementApplication</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,6 +20,55 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+		<dependency>
+    	    <groupId>org.springframework</groupId>
+    	    <artifactId>spring-orm</artifactId>
+    	    <version>4.3.1.RELEASE</version>
+    	</dependency>
+		<dependency>
+<groupId>com.fasterxml.jackson.datatype</groupId>
+<artifactId>jackson-datatype-hibernate5</artifactId>
+<version>2.12.6</version>
+</dependency>
+		<dependency>
+    	    <groupId>org.springframework</groupId>
+    	    <artifactId>spring-context</artifactId>
+    	    <version>4.3.1.RELEASE</version>
+    	</dependency>
+    	
+		<!-- Hibernate -->
+    	<dependency>
+    		<groupId>org.hibernate</groupId>
+    		<artifactId>hibernate-core</artifactId>
+    		<version>5.3.5.Final</version>
+    	</dependency>
+    	
+    	<!-- jsr303 validation -->
+    	<dependency>
+    	    <groupId>javax.validation</groupId>
+    	    <artifactId>validation-api</artifactId>
+    	    <version>1.1.0.Final</version>
+    	</dependency>
+    	<dependency>
+    	    <groupId>org.hibernate</groupId>
+    	    <artifactId>hibernate-validator</artifactId>
+    	    <version>5.4.1.Final</version>
+    	</dependency>
+    	
+    	<!-- h2 Database -->
+    	<dependency>
+		 <groupId>com.h2database</groupId>
+		 <artifactId>h2</artifactId>
+		 <version>2.1.212</version>
+		 <scope>runtime</scope>
+		</dependency>
+		
+		<!-- Model mapper -->
+	<dependency>
+	  <groupId>org.modelmapper</groupId>
+	  <artifactId>modelmapper</artifactId>
+	  <version>2.4.4</version>
+	</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>

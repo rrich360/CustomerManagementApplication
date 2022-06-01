@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <head>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -47,12 +47,10 @@ h4 {
 }
  </style>
  
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
- 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-
+<body>
 <div class="container">
 	<div class="row">
 		<div class="col-md-offset-5 col-md-3">
@@ -69,6 +67,7 @@ h4 {
 					<br></br>
 					<div class="wrapper">
 						<form:button type='success' class="btn btn-success">Login</form:button>
+						<div style="color: red">${error}</div>
 					</div>
 				</form:form>
 			</div>
@@ -76,4 +75,5 @@ h4 {
 		</div>
 	</div>
 </div>
+</body>
 </html>

@@ -16,7 +16,7 @@
     </div>
     </c:forEach>
   </div>
-</div><br>
+</div><br />
 
 </body>
 </html>

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.rogerr.custom.model.User;
+import com.rogerr.custom.model.Subscriber;
 import com.rogerr.custom.service.UserService;
 
 
@@ -32,11 +32,11 @@ public class UserController {
 
     @RequestMapping(value = "/user/", method = RequestMethod.GET)
     public ResponseEntity<?> listAllUsers() {
-        List<User> users = userService.findAllUsers();
+        List<Subscriber> users = userService.findAllUsers();
         if (users.isEmpty()) {
-            return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<List<Subscriber>>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+        return new ResponseEntity<List<Subscriber>>(users, HttpStatus.OK);
     }
 
     // -------------------Retrieve Single User--
@@ -44,18 +44,18 @@ public class UserController {
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getUser(@PathVariable("id") long id) {
         logger.debug("Fetching User with id " + id);
-        User user = userService.findById(id);
+        Subscriber user = userService.findById(id);
         if (user == null) {
             logger.debug("User with id " + id + " not found");
-            return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<Subscriber>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<User>(user, HttpStatus.OK);
+        return new ResponseEntity<Subscriber>(user, HttpStatus.OK);
     }
 
     // -------------------Create a User--
 
     @RequestMapping(value = "/user/", method = RequestMethod.POST)
-    public ResponseEntity<?> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
+    public ResponseEntity<?> createUser(@RequestBody Subscriber user, UriComponentsBuilder ucBuilder) {
         logger.debug("Creating User " + user.getUsername());
 
         if (userService.isUserExist(user)) {
@@ -73,14 +73,14 @@ public class UserController {
     // ------------------- Update a User--
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<?> updateUser(@PathVariable("id") long id, @RequestBody User user) {
+    public ResponseEntity<?> updateUser(@PathVariable("id") long id, @RequestBody Subscriber user) {
         logger.debug("Updating User " + id);
 
-        User currentUser = userService.findById(id);
+        Subscriber currentUser = userService.findById(id);
 
         if (currentUser == null) {
             logger.debug("User with id " + id + " not found");
-            return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<Subscriber>(HttpStatus.NO_CONTENT);
         }
 
         currentUser.setUsername(user.getUsername());
@@ -88,7 +88,7 @@ public class UserController {
         currentUser.setEmail(user.getEmail());
 
         userService.updateUser(currentUser);
-        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+        return new ResponseEntity<Subscriber>(currentUser, HttpStatus.OK);
     }
 
     // ------------------- Delete a User--
@@ -97,14 +97,14 @@ public class UserController {
     public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
         logger.debug("Fetching & Deleting User with id " + id);
 
-        User user = userService.findById(id);
+        Subscriber user = userService.findById(id);
         if (user == null) {
             logger.debug("Unable to delete. User with id " + id + " not found");
-            return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<Subscriber>(HttpStatus.NO_CONTENT);
         }
 
         userService.deleteUserById(id);
-        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<Subscriber>(HttpStatus.NO_CONTENT);
     }
 
     // ------------------- Delete All Users--
@@ -114,7 +114,7 @@ public class UserController {
         logger.debug("Deleting All Users");
 
         userService.deleteAllUsers();
-        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<Subscriber>(HttpStatus.NO_CONTENT);
     }
 
 }
