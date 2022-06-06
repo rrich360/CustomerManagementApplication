@@ -73,9 +73,7 @@ public class SubscriberView implements Subscriber {
 
   @Override
   public String toString() {
-	return "Subscriber [id=" + id + ", username=" + username + ","
-			+ " address=" + address + ","
-					+ " email=" + email + "]";
+	return "Subscriber [id=" + id + ", username=" + username + ", address=" + address + ", email=" + email + "]";
   		}
   
    }

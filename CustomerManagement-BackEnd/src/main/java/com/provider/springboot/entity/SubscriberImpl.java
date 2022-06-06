@@ -22,13 +22,13 @@ public class SubscriberImpl implements Subscriber{
 	@Column(name = "ID")
 	private Long id;
 	
-	@Column(name = "USERNAME", nullable = false)
+	@Column(name = "USERNAME")
 	private String username;
 	
-	@Column(name = "ADDRESS", nullable = false)
+	@Column(name = "ADDRESS")
 	private String address;
 	
-	@Column(name = "EMAIL", nullable = true)
+	@Column(name = "EMAIL")
 	private String email;
 
 
@@ -80,7 +80,7 @@ public void setAddress(String address) {
 
 @Override
 public String getEmail() {
-	return address;
+	return email;
 }
 
 @Override
@@ -93,8 +93,8 @@ public void setEmail(String email) {
 public String toString() {
 	return "User [id=" + id + ", "
 			+ "Username=" + username + ", "
-					+ "Addy=" + address + ","
-					+ "Email" + email + "]";
+					+ "Address=" + address + ","
+					+ "Email=" + email + "]";
 }
 
 }

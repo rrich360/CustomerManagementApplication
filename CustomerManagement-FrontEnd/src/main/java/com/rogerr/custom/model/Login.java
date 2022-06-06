@@ -1,11 +1,11 @@
 package com.rogerr.custom.model;
 
-import javax.validation.constraints.NotBlank;
+//import javax.validation.constraints.NotBlank;
 
 public class Login {
 	
 	
-	@NotBlank(message="username can not be empty!")
+//	@NotBlank(message="username can not be empty!")
 	
 	private String username;
 	
