@@ -1,7 +1,0 @@
-com\rogerr\custom\configuration\CustomAppInitializer.class
-com\rogerr\custom\configuration\CustomAppConfiguration.class
-com\rogerr\custom\model\Login.class
-com\rogerr\custom\controller\HomePageController.class
-com\rogerr\custom\controller\SubscriberController.class
-com\rogerr\custom\model\Product.class
-com\rogerr\custom\controller\LoginController.class
