@@ -8,8 +8,10 @@
 <title>Access Granted</title>
 </head>
 <body>
+	<div id="welcomeMessage" align="left">
 	<font color="green"><h1>Hello</h1></font>
-	<h2>${msg}</h2> You have successfully logged in.
+	<h2 id="successMessage">${msg}, you have successfully logged in!</h2>
 	<font color="green"><h1>Have an Awesome Day!</h1></font>
+	</div>
 </body>
 </html>

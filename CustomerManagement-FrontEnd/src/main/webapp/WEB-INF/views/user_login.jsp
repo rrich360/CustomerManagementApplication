@@ -58,17 +58,22 @@ h4 {
 			<br></br>
 				<h4>Welcome back. Please enter your Administrator credentials : </h4>
 			<br></br>
+			
 				<form:form modelAttribute="Login" method="post" class="form-horizontal">
 
-					<form:input path="username" type="text" class="form-control input-sm chat-input" placeholder="username or email" />
+					<form:input path="username" type="text" class="form-control input-sm chat-input" placeholder="username or email" id="username"/>
 					<br></br>
+					
 					<form:errors path = "username" cssClass="text-danger"/>
-					<form:input path="password" type="password" class="form-control input-sm chat-input" placeholder="password" />
+					
+					<form:input path="password" type="password" class="form-control input-sm chat-input" placeholder="password" id="password"/>
 					<br></br>
+					
 					<div class="wrapper">
-						<form:button type='success' class="btn btn-success">Login</form:button>
-						<div style="color: red">${error}</div>
+						<form:button type='success' class="btn btn-success" id="loginButton">Login</form:button>
+						<div style="color: red" id="errorMessage">${error}</div>
 					</div>
+					
 				</form:form>
 			</div>
 

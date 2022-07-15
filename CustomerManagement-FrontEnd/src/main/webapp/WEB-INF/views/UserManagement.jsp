@@ -34,14 +34,14 @@
       <div class="generic-container" data-ng-controller="UserController as ctrl">
           <div class="panel panel-default">
               <div class="panel-heading"><span class="lead">Subscriber Registration</span></div>
-              <div class="formcontainer">
+              <div id="subscriberForm" class="formcontainer">
                   <form data-ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
                       <input type="hidden" data-ng-model="ctrl.user.id" />
                       <div class="row">
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Name</label>
                               <div class="col-md-7">
-                                  <input type="text" data-ng-model="ctrl.user.username" name="uname" class="username form-control input-sm" placeholder="Enter your name" required data-ng-minlength="3"/>
+                                  <input type="text" id = "username" data-ng-model="ctrl.user.username" name="uname" class="username form-control input-sm" placeholder="Enter your name" required data-ng-minlength="3"/>
                                   <div class="has-error" data-ng-show="myForm.$dirty">
                                       <span data-ng-show="myForm.uname.$error.required">This is a required field</span>
                                       <span data-ng-show="myForm.uname.$error.minlength">Minimum length required is 3</span>
@@ -56,7 +56,7 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Address</label>
                               <div class="col-md-7">
-                                  <input type="text" data-ng-model="ctrl.user.address" class="form-control input-sm" placeholder="Enter your Address. [This field is validation free]"/>
+                                  <input type="text" id="address" data-ng-model="ctrl.user.address" class="form-control input-sm" placeholder="Enter your Address. [This field is validation free]"/>
                               </div>
                           </div>
                       </div>
@@ -65,7 +65,7 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Email</label>
                               <div class="col-md-7">
-                                  <input type="email" data-ng-model="ctrl.user.email" name="email" class="email form-control input-sm" placeholder="Enter your Email" required/>
+                                  <input type="email" id="email" data-ng-model="ctrl.user.email" name="email" class="email form-control input-sm" placeholder="Enter your Email" required/>
                                   <div class="has-error" data-ng-show="myForm.$dirty">
                                       <span data-ng-show="myForm.email.$error.required">This is a required field</span>
                                       <span data-ng-show="myForm.email.$invalid">This field is invalid </span>
@@ -76,8 +76,8 @@
 
                       <div class="row">
                           <div class="form-actions floatRight">
-                              <button type="button" data-ng-click="ctrl.reset()" class="btn btn-warning btn-sm" data-ng-disabled="myForm.$pristine">Reset Form</button>
-                              <button type="button" value="{{!ctrl.user.id ? 'Add' : 'Update'}}" data-ng-click="ctrl.submit()" class="btn btn-primary btn-sm" data-ng-disabled="myForm.$invalid">Add/Update</button>
+                              <button type="button" id="resetButton" data-ng-click="ctrl.reset()" class="btn btn-warning btn-sm" data-ng-disabled="myForm.$pristine">Reset Form</button>
+                              <button type="button" id="submitButton" value="{{!ctrl.user.id ? 'Add' : 'Update'}}" data-ng-click="ctrl.submit()" class="btn btn-primary btn-sm" data-ng-disabled="myForm.$invalid">Add/Update</button>
                           </div>
                       </div>
                   </form>
@@ -98,14 +98,14 @@
                           </tr>
                       </thead>
                       <tbody>
-                          <tr data-ng-repeat="u in ctrl.users">
-                              <td><span data-ng-bind="u.id"></span></td>
-                              <td><span data-ng-bind="u.username"></span></td>
-                              <td><span data-ng-bind="u.address"></span></td>
-                              <td><span data-ng-bind="u.email"></span></td>
+                          <tr id="list" data-ng-repeat="u in ctrl.users">
+                              <td><span data-ng-bind="u.id" id="suscriberId"></span></td>
+                              <td><span data-ng-bind="u.username" id="subscriberUsername"></span></td>
+                              <td><span data-ng-bind="u.address" id="subscriberAddress"></span></td>
+                              <td><span data-ng-bind="u.email" id="subscriberEmail"></span></td>
                               <td>
-                              <button type="button" data-ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>  
-                              <button type="button" data-ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
+                              <button type="button" id="editButton" data-ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>  
+                              <button type="button" id="deleteButton" data-ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
                               </td>
                           </tr>
                       </tbody>

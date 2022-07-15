@@ -61,15 +61,15 @@ public class UserController {
     }
  
 	
-    //------------------- Update a Game --------------------------------------------------------
+    //------------------- Update a User --------------------------------------------------------
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-    public ResponseEntity<?> updateGame(@PathVariable("id") Long id, @RequestBody SubscriberView user) {
+    public ResponseEntity<?> updateUser(@PathVariable("id") Long id, @RequestBody SubscriberView user) {
     	userService.updateUser(user);
         return new ResponseEntity<>(HttpStatus.OK);
     }
  
 	
-  //------------------- Delete a Game --------------------------------------------------------
+  //------------------- Delete a User --------------------------------------------------------
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteUser(@PathVariable("id") Long id) {
     	userService.deleteUserById(id);

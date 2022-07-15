@@ -4,7 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
+//import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,21 +29,24 @@ public class LoginController {
 	
 	@PostMapping("/")
 	//@RequestMapping(method = RequestMethod.POST)
-	public String submit(@Valid Model model, @ModelAttribute("Login") Login user, Errors errors) {
-		if (user != null && user.getUsername() != null & user.getPassword() != null) {
-			if (user.getUsername().equals("rrichar1") && user.getPassword().equals("hearts246")) {
+	public String submit(@Valid Model model, @ModelAttribute("Login") Login user) {
+		if (user.getUsername() != null && user.getPassword() != null) {	
+			if(user.getUsername().equals("rrichar1") && user.getPassword().equals("hearts246")){
 				model.addAttribute("msg", user.getUsername());
 				return "success";
-			} else {
-				model.addAttribute("error", "Invalid Details");
+				}
+			else { 
+				model.addAttribute("error", "Invalid details");
 				return "user_login";
-			}
-		} else if(errors.hasErrors()) {
-			return "user_login";
-		} else {
-			model.addAttribute("error", "Please enter Details");
+				 } 
+			} else if(user.getUsername() == null && user.getPassword() == null) {
+			model.addAttribute("error", "Please enter username and password");
 			return "user_login";
 		}
+		else {
+			model.addAttribute("error", "Please enter username and password");
+			return "user_login";
+			}		
 	}
 	
   }

@@ -32,11 +32,12 @@ public class SubscriberImpl implements Subscriber{
 	private String email;
 
 
-	SubscriberImpl(){}
+	public SubscriberImpl(){}
 	
 	SubscriberImpl(Subscriber subscriber){
 		BeanUtils.copyProperties(subscriber, this, SubscriberImpl.class);
 	}
+	
 	
 	public static SubscriberImpl convert(Subscriber subscriber) {
 		if (subscriber == null) { 
