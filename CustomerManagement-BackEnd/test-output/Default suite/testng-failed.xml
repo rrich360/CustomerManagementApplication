@@ -3,19 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.provider.springboot.selenium.LoginTesting">
+      <class name="com.provider.springboot.testng.CustomerManagementServiceTests">
         <methods>
-          <include name="givenLoginPage_whenInvalidUsernameValidPassword_thenErrorOnLoginPage"/>
-          <include name="givenLoginPage_whenValidUsernameAndNullPassword_thenErrorOnLoginPage"/>
-          <include name="givenLoginPage_whenNullUsernameAndNullPassword_thenErrorOnLoginPage"/>
-          <include name="givenLoginPage_whenValidUsernameAndPassword_thenNavigateToHomePage"/>
-          <include name="givenLoginPage_whenNullUsernameAndValidPassword_thenErrorOnLoginPage"/>
+          <include name="givenPreSavedSubscriber_whenUserIsEditedAndSaved_thenSubscriberShouldBeUpdated"/>
           <include name="setup"/>
-          <include name="givenLoginPage_whenValidUsernameInvalidPassword_thenErrorOnLoginPage"/>
-          <include name="tearDown"/>
-          <include name="beforeEach"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextAfterTestMethod"/>
         </methods>
-      </class> <!-- com.provider.springboot.selenium.LoginTesting -->
+      </class> <!-- com.provider.springboot.testng.CustomerManagementServiceTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

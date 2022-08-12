@@ -4,44 +4,56 @@
 <th>Method name</th>
 <th>Groups</th>
 </tr><tr>
-<td>com.provider.springboot.selenium.LoginTesting</td>
+<td>com.provider.springboot.uiTests.TestCaseSubscriberFormUI</td>
 <td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@Test</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td>givenLoginPage_whenInvalidUsernameValidPassword_thenErrorOnLoginPage</td>
+<td>givenSubscriberPage_whenAllInputFieldsValid_thenAddSubscriberToList</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>givenLoginPage_whenNullUsernameAndNullPassword_thenErrorOnLoginPage</td>
+<td>givenPreAddedSubscriber_whenEmailIsChanged_thenSubscriberIsUpdated</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>givenLoginPage_whenValidUsernameInvalidPassword_thenErrorOnLoginPage</td>
+<td>givenSubscriberPage_whenEmptyUsername_AddButtonIsDisabled</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>givenLoginPage_whenValidUsernameAndNullPassword_thenErrorOnLoginPage</td>
+<td>givenPreAddedSubscriber_whenUsernameIsChanged_thenSubscriberIsUpdated</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>givenLoginPage_whenValidUsernameAndPassword_thenNavigateToHomePage</td>
+<td>givenSubscriberPage_whenEmptyEmail_AddButtonIsDisabled</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>givenLoginPage_whenNullUsernameAndValidPassword_thenErrorOnLoginPage</td>
+<td>givenSubscriberPage_whenAllInputFieldsValidTheSecondTime_thenAddSubscriberToList</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>givenPreAddedSubscriber_whenAddressIsChanged_thenSubscriberIsUpdated</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@BeforeClass</td>
 </tr>
+<tr>
+<td>&nbsp;</td>
+<td>beforeMethodClass</td>
+<td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@BeforeMethod</td>
 </tr>
 <tr>
 <td align='center' colspan='3'>@AfterMethod</td>
 </tr>
+<tr>
+<td>&nbsp;</td>
+<td>close</td>
+<td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@AfterClass</td>
 </tr>
